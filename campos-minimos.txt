@@ -1,0 +1,49 @@
+Campos Demográficos
+
+Nombre   50  
+Apellido 1   30  
+Apellido 2   30  
+Rut Integer 8 
+Digito Verificador  Varchar 1 Debe
+Fecha de Nacimiento Date  8 Debe
+Previsión integer 1 Debe
+Beneficiarios de FONASA integer 1 Debe
+Región  integer 2 Debe
+Provincia integer 3 Debe
+Comuna  integer 5 Debe
+Servicio Salud  Integer 2 Debe
+Código Establecimiento Salud  integer 5 Debe
+Nombre del Establecimiento  Varchar 150 Debe
+
+
+
+Genero  integer 1 Recomendable
+Nacionalidad  integer 3 Recomendable
+Pueblo Originario integer 2 Recomendable
+Estado Conyugal integer 1 Recomendable
+Religión o Culto  integer 2 Recomendable
+Nivel de Instrucción  integer 2 Recomendable
+Ocupación integer 2 Recomendable
+Actividad Económica Integer 2 Recomendable
+Dirección varchar 50  Recomendable
+
+
+Diagnóstico - Tratamiento     
+      
+
+Tipo de Comité  integer 2 Debe
+Fecha Diagnóstico Date  8 Debe
+Fecha del Comité  Date  8 Debe
+Diagnóstico Comité  Varchar 50  Recomendable
+Diagnóstico CIE10 Varchar 7 Debe
+ECOG  integer 1 Debe
+TNM Varchar 10  Debe
+Estadio varchar 10  Debe
+Nombre Médico Tratante  varchar 50  Recomendable
+Tipo Tratamiento  integer 1 Recomendable
+Intención del tratamiento integer 1 Recomendable
+Fecha de Intención del tratamiento  Date  8 Recomendable
+Resolución Comite integer 3 Debe
+Descripcíon Tratamiento - Resolución Comité clob    Recomendable
+
+

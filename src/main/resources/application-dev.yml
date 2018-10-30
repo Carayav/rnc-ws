@@ -1,0 +1,11 @@
+#spring:
+#  datasource:
+#    url: jdbc:postgresql://pgsqlqacl1.naiss.local:5432/rnc?currentSchema=public
+#    username: adm_rnc
+#    password: kZ4syEjf
+#
+
+
+#    url: jdbc:postgresql://pgsqlqacl1.naiss.local:5432/rnc?currentSchema=public
+#    username: adm_rnc
+#    password: kZ4syEjf
