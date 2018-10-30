@@ -9,27 +9,43 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.criterion.Restrictions;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
+
+import java.util.Date;
 import java.util.List;
 
 public class PacienteData {
 
+    private Timestamp timestamp;
 
     public void save(cl.minsal.api.types.Documento docu){
         Transaction tx1 = null;
         Session session = null;
+        timestamp = new Timestamp((new Date()).getTime());
 
         try {
         	SessionFactory sessionFactory = new AnnotationConfiguration().configure().buildSessionFactory();
             session = sessionFactory.openSession();
+
             Paciente paciente = new Paciente(docu);
+            paciente.setFecha_registro(timestamp);
+
             Diagnostico diag = new Diagnostico(docu);
+            diag.setFecha_registro(timestamp);
+
             Medico medico = (new Medico(docu));
+            medico.setFecha_registro(timestamp);
+
             List<Tratamiento> tratamientos = new ArrayList();
             List<cl.minsal.api.types.Tratamiento> ts  = docu.getBodyDoc().getResolucionTratamientoDoc().getTratamientos().getTratamiento();
+            Tratamiento tra;
             for (cl.minsal.api.types.Tratamiento t : ts) {
-                tratamientos.add(new Tratamiento(docu, t));
+                tra = new Tratamiento(docu, t);
+                tra.setFecha_registro(this.timestamp);
+                tratamientos.add(tra);
             }
+
             System.out.println("");
             tx1 = session.beginTransaction();
             Criteria criteria = session.createCriteria(Paciente.class);

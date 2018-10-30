@@ -5,16 +5,15 @@ server:
   port: 9090
 
 spring:
+  profiles:
+    active: "dev"
   jpa:
     database: POSTGRESQL
     show-sql: true
     hibernate.ddl-auto: none
   datasource:
-    url: jdbc:postgresql://pgsqlqacl1.naiss.local:5432/rnc?currentSchema=public
-    username: adm_rnc
-    password: kZ4syEjf
-    platform: postgres
-    driverClassName: org.postgresql.Driver
+   platform: postgres
+   driverClassName: org.postgresql.Driver
 
 
 #    dbCreate: none
