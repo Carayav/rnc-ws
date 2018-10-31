@@ -14,6 +14,18 @@ import org.springframework.ws.transport.http.MessageDispatcherServlet;
 import org.springframework.ws.wsdl.wsdl11.SimpleWsdl11Definition;
 import org.springframework.ws.wsdl.wsdl11.Wsdl11Definition;
 
+// import org.springframework.beans.factory.annotation.Value;
+// import org.springframework.context.annotation.*;
+// import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
+// import org.springframework.jdbc.core.JdbcTemplate;
+// import org.springframework.jdbc.datasource.lookup.JndiDataSourceLookup;
+
+// import javax.annotation.Resource;
+// import javax.sql.DataSource;
+
+
+
+
 @EnableTransactionManagement
 @EnableWs
 @Configuration
@@ -35,4 +47,31 @@ public class WebServiceConfig extends WsConfigurerAdapter {
     return wsdl11Definition;
   }
 
+  // private static final String JNDI_NAME = "jdni/rnc";
+
+  // @Bean
+  // public static PropertySourcesPlaceholderConfigurer propertyPlaceholderConfigurer() {
+  //   return new PropertySourcesPlaceholderConfigurer();
+  // }
+
+  // @Bean
+  // @Primary
+  // @Resource(name = JNDI_NAME)
+  // public DataSource dataSource() {
+
+  //     JndiDataSourceLookup jndiDataSourceLookup = new JndiDataSourceLookup();
+  //     jndiDataSourceLookup.setResourceRef(true);
+  //     return jndiDataSourceLookup.getDataSource(JNDI_NAME);
+
+  // }
+
+  // @Bean
+  // public JdbcTemplate jdbcTemplate() {
+  //   return new JdbcTemplate(dataSource());
+  // }
 }
+
+
+
+
+

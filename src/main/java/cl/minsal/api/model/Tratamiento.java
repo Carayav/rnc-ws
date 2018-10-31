@@ -20,13 +20,23 @@ public class Tratamiento implements Serializable {
 
 	public Tratamiento(cl.minsal.api.types.Documento doc, cl.minsal.api.types.Tratamiento tratamiento){
 		this.resolucion_comite = Integer.parseInt(doc.getBodyDoc().getResolucionTratamientoDoc().getTratamientoGeneral().getResolucionComite());
-		this.tipo_tratamiento = tratamiento.getTipoTratamiento();
-		this.intencion_tratamiento = tratamiento.getIntencionTratamiento();
-		this.fecha_intencion = tratamiento.getFechaIntencion().toGregorianCalendar().getTime();
+
+        if(tratamiento.getTipoTratamiento() != 0) {
+            this.tipo_tratamiento = tratamiento.getTipoTratamiento();
+        }
+        if(tratamiento.getIntencionTratamiento() != 0) {
+            this.intencion_tratamiento = tratamiento.getIntencionTratamiento();
+        }
+
+		//Correcion InCancer
+		if(tratamiento.getFechaIntencion() != null ){
+			this.fecha_intencion = tratamiento.getFechaIntencion().toGregorianCalendar().getTime();
+		}
+
 		this.descripcion_tratamiento = doc.getBodyDoc().
 				getResolucionTratamientoDoc().
 				getTratamientoGeneral().
-				getDescripcionTratamiento();
+				getDescripcionResolucionComite();
 	}
 	
 	private static final long serialVersionUID = 1L;

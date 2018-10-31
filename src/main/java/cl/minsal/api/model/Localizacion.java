@@ -58,4 +58,12 @@ public class Localizacion implements Serializable {
 		return direccion;
 	}
 
+	public Localizacion() {}
+
+	public Localizacion(Integer region, Integer provincia, Integer comuna, String direccion) {
+		this.region = region;
+		this.provincia = provincia;
+		this.comuna = comuna;
+		this.direccion = direccion;
+	}
 }

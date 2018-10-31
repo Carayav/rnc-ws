@@ -19,7 +19,7 @@ public class PacienteData {
 
     private Timestamp timestamp;
 
-    public void save(cl.minsal.api.types.Documento docu){
+    public void save(cl.minsal.api.types.Documento docu) throws Exception {
         Transaction tx1 = null;
         Session session = null;
         timestamp = new Timestamp((new Date()).getTime());
@@ -27,6 +27,14 @@ public class PacienteData {
         try {
         	SessionFactory sessionFactory = new AnnotationConfiguration().configure().buildSessionFactory();
             session = sessionFactory.openSession();
+
+            cl.minsal.api.types.Paciente.Ubicacion ubicacion = docu.getHeaderDoc().getPaciente().getUbicacion();
+
+            Localizacion loc = new Localizacion(ubicacion.getRegion(),
+                    ubicacion.getProvincia(),
+                    ubicacion.getComuna(),
+                    ubicacion.getDireccion());
+
 
             Paciente paciente = new Paciente(docu);
             paciente.setFecha_registro(timestamp);
@@ -69,8 +77,11 @@ public class PacienteData {
 
 //            Documentos docJson = new Documentos(prettyJsonString);
 
+            //Guardar Localizacion
+            session.save(loc);
 
             if (findPaciente == null) {
+                paciente.setLocalizacion(loc);
                 session.save(paciente);
                 diag.setPaciente(paciente);
 //                docJson.setPaciente(paciente);
@@ -102,6 +113,9 @@ public class PacienteData {
             tx1.rollback();
         } finally {
             session.close();
+            if(tx1.wasRolledBack()){
+                throw new Exception();
+            }
         }
     }
 }

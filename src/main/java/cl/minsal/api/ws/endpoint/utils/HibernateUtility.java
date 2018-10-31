@@ -39,7 +39,7 @@ public class HibernateUtility {
                 System.out.printf("::::::::::::::::::::::::::::::::::\n\n\n");
 
                 Configuration configuration = new Configuration().configure();
-                //configuration.setProperty("hibernate.connection.datasource","java:comp/env/jdbc/rnc");
+                // configuration.setProperty("hibernate.connection.datasource","java:comp/env/jdni/rnc");
                 //configuration.setProperty("hibernate.connection.username","postgres");
                 //configuration.setProperty("hibernate.connection.password","123456");
                 //configuration.setProperty("hibernate.connection.url","jdbc:postgresql://localhost:5432/rnc_bd?currentSchema=schema_rnc");

@@ -37,33 +37,37 @@ public class Paciente implements Serializable {
 		if (paciente.getGenero().intValue() != 0){
 			this.genero = paciente.getGenero().intValue();
 		}
-		if(datosDem.getNacionalidad() != null) {
+		//Correcion InCancer
+		if(datosDem.getNacionalidad() != null || datosDem.getNacionalidad() != 0){
 			this.nacionalidad = datosDem.getNacionalidad();
 		}
-		if(datosDem.getPuebloOriginario() != null) {
+		if(datosDem.getPuebloOriginario() != null && datosDem.getPuebloOriginario() != 0)  {
 			this.pueblo_originario = datosDem.getPuebloOriginario();
 		}
-		if(datosDem.getEstadoConyugal() != null){
-			this.estado_conyugal = datosDem.getEstadoConyugal();
+		if(datosDem.getEstadoConyugal() != null && datosDem.getEstadoConyugal() != 0){
+		this.estado_conyugal = datosDem.getEstadoConyugal();
 		}
-		if(datosDem.getReligionCulto() != null){
+		if(datosDem.getReligionCulto() != null && datosDem.getReligionCulto() != 0){
 			this.religion = datosDem.getReligionCulto();
 		}
-		if (datosDem.getNivelInstruccion() != null){
+		if (datosDem.getNivelInstruccion() != null && datosDem.getNivelInstruccion() != 0){
 			this.nivel_instruccion = datosDem.getNivelInstruccion();
 		}
-		if (datosDem.getOcupacion() != null){
+		if (datosDem.getOcupacion() != null && datosDem.getOcupacion() != 0){
 			this.ocupacion = datosDem.getOcupacion();
 		}
-		if (datosDem.getActividadEconomica() != null){
+		if (datosDem.getActividadEconomica() != null && datosDem.getActividadEconomica() != 0){
 			this.actividad_economica = datosDem.getActividadEconomica();
 		}
 		if (datosDem.getPrevision() != null){
 			this.prevision = datosDem.getPrevision();
 		}
-		if (((int)datosDem.getBeneficiarioFonasa().toUpperCase().charAt(0)-64) != 0){
-			this.beneficiario_fonasa = ((int)datosDem.getBeneficiarioFonasa().toUpperCase().charAt(0)-64);
+		if(this.prevision == 1){
+			if (((int)datosDem.getBeneficiarioFonasa().toUpperCase().charAt(0)-64) != 0){
+				this.beneficiario_fonasa = ((int)datosDem.getBeneficiarioFonasa().toUpperCase().charAt(0)-64);
+			}
 		}
+
 	}
 	
 	private static final long serialVersionUID = 1L;

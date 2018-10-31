@@ -11,7 +11,7 @@ public class ProvinciaValidator  implements DocumentoValidator {
     @Override
     public void validate(Documento documento) {
         Integer provincia = documento.getHeaderDoc().getPaciente().getUbicacion().getProvincia();
-        if (provincia == null || provincia == 0) {
+        if (provincia == null ) {
             throw new ValidationException(ErrorCodes.ELEMENTO_VACIO_STR + elemento, ErrorCodes.ELEMENTO_VACIO_COD);
         }
         Boolean isValid = provincia > 10 && provincia < 164 || provincia == 999;
