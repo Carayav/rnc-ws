@@ -19,7 +19,9 @@ public class Tratamiento implements Serializable {
 	public Tratamiento(){}
 
 	public Tratamiento(cl.minsal.api.types.Documento doc, cl.minsal.api.types.Tratamiento tratamiento){
-		this.resolucion_comite = Integer.parseInt(doc.getBodyDoc().getResolucionTratamientoDoc().getTratamientoGeneral().getResolucionComite());
+	    if(doc.getBodyDoc().getResolucionTratamientoDoc().getTratamientoGeneral().getResolucionComite() != null && doc.getBodyDoc().getResolucionTratamientoDoc().getTratamientoGeneral().getResolucionComite().length() > 1){
+            this.resolucion_comite = Integer.parseInt(doc.getBodyDoc().getResolucionTratamientoDoc().getTratamientoGeneral().getResolucionComite());
+        }
 
         if(tratamiento.getTipoTratamiento() != 0) {
             this.tipo_tratamiento = tratamiento.getTipoTratamiento();

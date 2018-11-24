@@ -17,28 +17,9 @@ import javax.persistence.OneToOne;
 
 @Entity
 public class Diagnostico implements Serializable {
-	
-	public Diagnostico(){
 
-	}
-
-	public Diagnostico(cl.minsal.api.types.Documento docu){
-		cl.minsal.api.types.Diagnostico diagnostico = docu.getBodyDoc().getDiagnosticoDoc().getDiagnostico();
-		this.diagnostico_cie10 = diagnostico.getDiagnosticoCIE10();
-		this.diagnostico_comite = diagnostico.getDiagnosticoComite();
-		this.ecog = diagnostico.getECOG();
-		this.estadio = diagnostico.getEstadio();
-		List<cl.minsal.api.types.Tratamiento> tratamientos = docu.getBodyDoc().getResolucionTratamientoDoc().
-				getTratamientos().getTratamiento();
-		this.fecha_comite = tratamientos.get(0).getFechaComite().toGregorianCalendar().getTime();
-		this.fecha_diagnostico = diagnostico.getFechaDiagnostico().toGregorianCalendar().getTime();
-		this.tipo_comite = Integer.parseInt(diagnostico.getTipoComite());
-		this.tnm = diagnostico.getTNM();
-
-	}
-	
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id_diagnostico;
@@ -51,7 +32,49 @@ public class Diagnostico implements Serializable {
 	private String tnm;
 	private String estadio;
 	private Timestamp fecha_registro;
+
+
+	public Diagnostico(){}
+
+	public Diagnostico(cl.minsal.api.types.Documento docu){
+		cl.minsal.api.types.Diagnostico diagnostico = docu.getBodyDoc().getDiagnosticoDoc().getDiagnostico();
+
+		if(diagnostico.getTipoComite() != null){
+			this.tipo_comite = Integer.parseInt(diagnostico.getTipoComite());
+		}
+
+		if(diagnostico.getFechaDiagnostico() != null){
+			this.fecha_diagnostico = diagnostico.getFechaDiagnostico().toGregorianCalendar().getTime();
+		}
+
+		List<cl.minsal.api.types.Tratamiento> tratamientos = docu.getBodyDoc().getResolucionTratamientoDoc().
+				getTratamientos().getTratamiento();
+		if(tratamientos.get(0).getFechaComite() != null){
+			this.fecha_comite = tratamientos.get(0).getFechaComite().toGregorianCalendar().getTime();
+		}
+
+		if(diagnostico.getDiagnosticoComite() != null){
+			this.diagnostico_comite = diagnostico.getDiagnosticoComite();
+		}
+
+		if(diagnostico.getDiagnosticoCIE10() != null){
+			this.diagnostico_cie10 = diagnostico.getDiagnosticoCIE10();
+		}
+
+		this.ecog = diagnostico.getECOG();
+
+		if(diagnostico.getEstadio() != null){
+			this.estadio = diagnostico.getEstadio();
+		}
+
+		if(diagnostico.getTNM() != null){
+			this.tnm = diagnostico.getTNM();
+		}
+
+
+	}
 	
+
 	@ManyToOne
     @JoinColumn(name="id_paciente", nullable=false)
 	private Paciente paciente;

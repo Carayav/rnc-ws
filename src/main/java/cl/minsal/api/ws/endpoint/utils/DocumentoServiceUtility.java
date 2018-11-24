@@ -51,19 +51,19 @@ Descripcíon Tratamiento - Resolución Comité clob    Recomendable
                     new CreadorCodigoEstablecimientoValidator(),
                     new CreadorServicioSaludValidator(),
                     new MedicoTratanteValidator(),
-                    new ResolucionComiteValidator(),
+//                    new ResolucionComiteValidator(),
                     new BeneficiarioValidator(),
                     new PrevisionValidator(),
                     new RegionValidator(),
 //                    new ProvinciaValidator(),
-                    new ComunaValidator(),
-                    new TipoComiteValidator(),
-                    new FechaDiagnosticoValidator(),
-                    new FechaComiteValidator(),
-                    new DiagnosticoCIE10(),
-                    new ECOGValidator(),
-                    new TNMValidator(),
-                    new EstadioValidator()
+                    new ComunaValidator()
+//                    new TipoComiteValidator(),
+//                    new FechaDiagnosticoValidator(),
+//                    new FechaComiteValidator(),
+//                    new DiagnosticoCIE10(),
+//                    new ECOGValidator(),
+//                    new TNMValidator(),
+//                    new EstadioValidator()
             ));
         }
         return docSrv;

@@ -6,7 +6,7 @@ server:
 
 spring:
   profiles:
-    active: "prod"
+    active: "dev"
   jpa:
     database: POSTGRESQL
     show-sql: true
@@ -14,56 +14,3 @@ spring:
   datasource:
    platform: postgres
    driverClassName: org.postgresql.Driver
-
-
-#    dbCreate: none
-#    jndi-name: jdni/rnc
-# TODO revisar antes de deploy en websphere
-#    jndi-name: java:comp/env/jdni/rnc
-#    url: jdbc:postgresql://localhost:5432/rnc?currentSchema=public
-#    url: jdbc:postgresql://pgsqlqacl1.naiss.local:5432/rnc?currentSchema=public
-##    username: adm_rnc
-#    password: kZ4syEjf
-
-
-
-
-#
-# spring:
-#   jpa:
-#     database: POSTGRESQL
-#     show-sql: true
-#   datasource:
-#     platform: postgres
-#     dbCreate: none
-#     jndiName: "java:comp/env/jdbc/rnc"
-#     username: postgres
-#     password: 123456
-#     driverClassName: org.postgresql.Driver
-###     User BD
-###    username: user_rnc
-###    password: aGMSyvhD
-##    driverClassName: org.postgresql.Driver
-#    url: jdbc:postgresql://172.17.0.2:5432/rnc_bd
-##   FIN Config Servidor Local BD Minsal
-######################################################
-#
-######################################################
-##   Incio Config WebSphere Minsal
-#  jpa:
-#    database: POSTGRESQL
-#    show-sql: true
-##    hibernate.ddl-auto: update
-#  datasource:
-#    platform: postgres
-##    url: jdbc:postgresql://localhost:5432/rnc_bd
-#    dbCreate: none
-#    jndiName: "java:comp/env/jdbc/rnc"
-#    username: postgres
-#    password: 123456
-#    driverClassName: org.postgresql.Driver
-##   FIN Config WebSphere Minsal
-######################################################
-
-
-
